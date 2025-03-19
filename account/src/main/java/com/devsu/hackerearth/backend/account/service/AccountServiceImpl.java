@@ -59,10 +59,10 @@ public class AccountServiceImpl implements AccountService {
 
     @Transactional
     @Override
-    public AccountDto update(Long id, AccountDto accountDto) {
+    public AccountDto update(AccountDto accountDto) {
         // Update account
 
-        AccountDto accountDtoBd = getById(id);
+        AccountDto accountDtoBd = getById(accountDto.getId());
         Account accountIn = mapperAccount.accountDtoInToAccountBd(accountDtoBd, accountDto);
         Account accountOut = accountRepository.save(accountIn);
         AccountDto accountDtoOut = mapperAccount.accountToAccountDto(accountOut);

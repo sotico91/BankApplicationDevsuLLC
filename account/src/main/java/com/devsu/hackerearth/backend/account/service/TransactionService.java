@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.data.repository.query.Param;
 
-import com.devsu.hackerearth.backend.account.model.dto.BankStatementReportDto;
+import com.devsu.hackerearth.backend.account.model.dto.BankStatementDto;
 import com.devsu.hackerearth.backend.account.model.dto.TransactionDto;
 
 public interface TransactionService {
@@ -16,7 +16,7 @@ public interface TransactionService {
 
     public TransactionDto create(TransactionDto transactionDto);
 
-    public BankStatementReportDto getAllByAccountClientIdAndDateBetween(Long clientId,
+    public List<BankStatementDto> getAllByAccountClientIdAndDateBetween(Long clientId,
             @Param("dateTransactionStart") Date dateTransactionStart,
             @Param("dateTransactionEnd") Date dateTransactionEnd);
 

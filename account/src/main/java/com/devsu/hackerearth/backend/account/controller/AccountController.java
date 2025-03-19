@@ -59,7 +59,7 @@ public class AccountController {
 		// api/accounts/{id}
 		// Update accounts
 
-		AccountDto accountDtoOut = accountService.update(id, accountDto);
+		AccountDto accountDtoOut = accountService.update(accountDto);
 		return ResponseEntity.ok(accountDtoOut);
 	}
 

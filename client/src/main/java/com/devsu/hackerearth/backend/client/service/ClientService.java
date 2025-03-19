@@ -13,7 +13,7 @@ public interface ClientService {
 
 	public ClientDto create(ClientDto clientDto);
 
-	public ClientDto update(Long id, ClientDto clientDto);
+	public ClientDto update(ClientDto clientDto);
 
 	public ClientDto partialUpdate(Long id, PartialClientDto partialClientDto);
 

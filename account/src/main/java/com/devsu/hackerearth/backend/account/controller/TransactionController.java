@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devsu.hackerearth.backend.account.model.dto.BankStatementReportDto;
+import com.devsu.hackerearth.backend.account.model.dto.BankStatementDto;
 import com.devsu.hackerearth.backend.account.model.dto.TransactionDto;
 import com.devsu.hackerearth.backend.account.service.TransactionService;
 
@@ -52,13 +52,13 @@ public class TransactionController {
 	}
 
 	@PostMapping("/clients/{id}/report")
-	public ResponseEntity<BankStatementReportDto> report(@PathVariable Long clientId,
+	public ResponseEntity<List<BankStatementDto>> report(@PathVariable Long clientId,
 			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateTransactionStart,
 			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateTransactionEnd) {
 		// api/transactions/clients/{clientId}/report
 		// Get report
 
-		BankStatementReportDto bankStatementList = transactionService.getAllByAccountClientIdAndDateBetween(clientId,
+		List<BankStatementDto> bankStatementList = transactionService.getAllByAccountClientIdAndDateBetween(clientId,
 				dateTransactionStart, dateTransactionEnd);
 
 		return ResponseEntity.ok(bankStatementList);

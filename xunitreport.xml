@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <testsuites>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.devsu.hackerearth.backend.account.sampleTest" time="5.479" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.devsu.hackerearth.backend.account.sampleTest" time="5.191" tests="3" errors="0" skipped="0" failures="0">
   
   <properties>
     
@@ -32,7 +32,7 @@
     
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
     
-    <property name="sun.java.command" value="/home/project/Microservices/BankApplication/account/target/surefire/surefirebooter14567482403044839934.jar /home/project/Microservices/BankApplication/account/target/surefire 2025-03-18T23-02-31_477-jvmRun1 surefire8931663734630264514tmp surefire_010124901341597927403tmp"/>
+    <property name="sun.java.command" value="/home/project/Microservices/BankApplication/account/target/surefire/surefirebooter8108971513033133322.jar /home/project/Microservices/BankApplication/account/target/surefire 2025-03-18T23-55-17_654-jvmRun1 surefire2682910976655346829tmp surefire_0447205885008101547tmp"/>
     
     <property name="jdk.debug" value="release"/>
     
@@ -67,7 +67,7 @@
     
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     
-    <property name="surefire.real.class.path" value="/home/project/Microservices/BankApplication/account/target/surefire/surefirebooter14567482403044839934.jar"/>
+    <property name="surefire.real.class.path" value="/home/project/Microservices/BankApplication/account/target/surefire/surefirebooter8108971513033133322.jar"/>
     
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     
@@ -119,14 +119,14 @@
     
   </properties>
   
-  <testcase name="testGetTransactionById" classname="com.devsu.hackerearth.backend.account.sampleTest" time="0.136"/>
+  <testcase name="testGetTransactionById" classname="com.devsu.hackerearth.backend.account.sampleTest" time="0.145"/>
   
-  <testcase name="testCreateTransaction" classname="com.devsu.hackerearth.backend.account.sampleTest" time="0.064"/>
+  <testcase name="testCreateTransaction" classname="com.devsu.hackerearth.backend.account.sampleTest" time="0.063"/>
   
   <testcase name="createAccountTest" classname="com.devsu.hackerearth.backend.account.sampleTest" time="0.013"/>
   
 </testsuite>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.devsu.hackerearth.backend.client.sampleTest" time="4.428" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.devsu.hackerearth.backend.client.sampleTest" time="4.385" tests="2" errors="0" skipped="0" failures="0">
   
   <properties>
     
@@ -158,7 +158,7 @@
     
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
     
-    <property name="sun.java.command" value="/home/project/Microservices/BankApplication/client/target/surefire/surefirebooter9234747375791268417.jar /home/project/Microservices/BankApplication/client/target/surefire 2025-03-18T23-02-41_123-jvmRun1 surefire15825280267668984847tmp surefire_01288644439731085426tmp"/>
+    <property name="sun.java.command" value="/home/project/Microservices/BankApplication/client/target/surefire/surefirebooter2908137333643795203.jar /home/project/Microservices/BankApplication/client/target/surefire 2025-03-18T23-55-26_918-jvmRun1 surefire13193341837559128601tmp surefire_015456204556981038142tmp"/>
     
     <property name="jdk.debug" value="release"/>
     
@@ -193,7 +193,7 @@
     
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     
-    <property name="surefire.real.class.path" value="/home/project/Microservices/BankApplication/client/target/surefire/surefirebooter9234747375791268417.jar"/>
+    <property name="surefire.real.class.path" value="/home/project/Microservices/BankApplication/client/target/surefire/surefirebooter2908137333643795203.jar"/>
     
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     
@@ -245,9 +245,9 @@
     
   </properties>
   
-  <testcase name="testClientAssociationWithPerson" classname="com.devsu.hackerearth.backend.client.sampleTest" time="0.083"/>
+  <testcase name="testClientAssociationWithPerson" classname="com.devsu.hackerearth.backend.client.sampleTest" time="0.109"/>
   
-  <testcase name="testClientAttributes" classname="com.devsu.hackerearth.backend.client.sampleTest" time="0.004"/>
+  <testcase name="testClientAttributes" classname="com.devsu.hackerearth.backend.client.sampleTest" time="0.009"/>
   
 </testsuite>
 </testsuites>

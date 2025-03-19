@@ -15,7 +15,7 @@ import com.devsu.hackerearth.backend.account.model.TransactionType;
 import com.devsu.hackerearth.backend.account.model.Transaction;
 import com.devsu.hackerearth.backend.account.model.dto.AccountDto;
 import com.devsu.hackerearth.backend.account.model.dto.BankStatementDto;
-import com.devsu.hackerearth.backend.account.model.dto.BankStatementReportDto;
+
 import com.devsu.hackerearth.backend.account.model.dto.ClientDto;
 import com.devsu.hackerearth.backend.account.model.dto.TransactionDto;
 import com.devsu.hackerearth.backend.account.model.mapper.MapperTransaction;
@@ -96,7 +96,7 @@ public class TransactionServiceImpl implements TransactionService {
         }
 
         accountDto.setInitialAmount(newBalance);
-        accountService.update(accountDto.getId(), accountDto);
+        accountService.update(accountDto);
 
         Transaction transaction = mapperTransaction.transactionDtoToTransaction(transactionDto);
         transaction.setType(transactionType.name());
@@ -108,7 +108,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public BankStatementReportDto getAllByAccountClientIdAndDateBetween(Long clientId, Date dateTransactionStart,
+    public List<BankStatementDto> getAllByAccountClientIdAndDateBetween(Long clientId, Date dateTransactionStart,
             Date dateTransactionEnd) {
 
         List<AccountDto> accounts = accountService.getAllAcccountsByClient(clientId);
@@ -133,11 +133,7 @@ public class TransactionServiceImpl implements TransactionService {
                                 client.getName())))
                 .collect(Collectors.toList());
 
-        return BankStatementReportDto.builder()
-                .clientDni(client.getDni())
-                .clientName(client.getName())
-                .transactions(transactions)
-                .build();
+        return transactions;
     }
 
     @Override

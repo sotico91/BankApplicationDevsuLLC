@@ -64,10 +64,10 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public ClientDto update(Long id, ClientDto clientDto) {
+	public ClientDto update(ClientDto clientDto) {
 
-		Person person = personService.getById(id);
-		ClientDto clientDtoIfExist = getById(id);
+		Person person = personService.getById(clientDto.getId());
+		ClientDto clientDtoIfExist = getById(clientDto.getId());
 
 		Person personIn = mapperperson.clientDtoTOPersonUpdate(person, clientDto);
 		Person personOut = personService.create(personIn);
