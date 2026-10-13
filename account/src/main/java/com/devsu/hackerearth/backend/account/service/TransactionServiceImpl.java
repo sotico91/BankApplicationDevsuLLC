@@ -67,12 +67,15 @@ public class TransactionServiceImpl implements TransactionService {
         }
 
         double newBalance = accountDto.getInitialAmount();
+        // Credits and debits may arrive with either sign; store credits positive and debits negative
+        double amount = Math.abs(transactionDto.getAmount());
 
         switch (transactionType) {
             case DEPOSIT:
             case REFUND:
             case INTEREST_CREDIT:
-                newBalance += transactionDto.getAmount();
+                newBalance += amount;
+                transactionDto.setAmount(amount);
                 break;
 
             case WITHDRAWAL:
@@ -80,10 +83,11 @@ public class TransactionServiceImpl implements TransactionService {
             case PAYMENT:
             case CHARGE:
             case FEE:
-                if (newBalance < transactionDto.getAmount()) {
+                if (newBalance < amount) {
                     throw new IllegalStateException("Saldo insuficiente para esta operación");
                 }
-                newBalance -= transactionDto.getAmount();
+                newBalance -= amount;
+                transactionDto.setAmount(-amount);
                 break;
 
             case REVERSAL:
@@ -99,6 +103,9 @@ public class TransactionServiceImpl implements TransactionService {
         accountService.update(accountDto);
 
         Transaction transaction = mapperTransaction.transactionDtoToTransaction(transactionDto);
+        if (transaction.getDate() == null) {
+            transaction.setDate(new Date());
+        }
         transaction.setType(transactionType.name());
         transaction.setBalance(newBalance);
         Transaction transactionOut = transactionRepository.save(transaction);

@@ -9,6 +9,7 @@ import com.devsu.hackerearth.backend.client.exception.UserNotFoundException;
 import com.devsu.hackerearth.backend.client.model.Client;
 import com.devsu.hackerearth.backend.client.model.Person;
 import com.devsu.hackerearth.backend.client.model.dto.ClientDto;
+import com.devsu.hackerearth.backend.client.model.dto.PartialClientDto;
 
 @Component
 public class MapperClient {
@@ -75,13 +76,14 @@ public class MapperClient {
         return client;
     }
 
-    public Client mapperClientDtoToClientPartial(ClientDto clientDto) {
-        if (clientDto == null) {
-            throw new IllegalArgumentException("ClientDto no puede ser nulo");
+    public Client mapperClientDtoToClientPartial(ClientDto clientDto, PartialClientDto partialClientDto) {
+        if (clientDto == null || partialClientDto == null) {
+            throw new IllegalArgumentException("ClientDto o PartialClientDto no pueden ser nulos");
         }
 
         Client client = new Client();
-        client.setActive(clientDto.isActive());
+        client.setActive(partialClientDto.isActive());
+        client.setPassword(clientDto.getPassword());
         return client;
     }
 }

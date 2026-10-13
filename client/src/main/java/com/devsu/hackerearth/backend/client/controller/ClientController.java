@@ -56,6 +56,7 @@ public class ClientController {
 		// api/clients/{id}
 		// Update client
 
+		clientDto.setId(id);
 		ClientDto client = clientService.update(clientDto);
 		return ResponseEntity.ok(client);
 	}

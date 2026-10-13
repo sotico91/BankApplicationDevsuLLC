@@ -51,7 +51,7 @@ public class MapperAccount {
                                                 : accountBd.getNumber());
                 account.setType((accountDtoIn.getType() != null && accountDtoIn.getType() != accountBd.getType())
                                 ? accountDtoIn.getType()
-                                : accountBd.getNumber());
+                                : accountBd.getType());
                 account.setInitialAmount(accountDtoIn.getInitialAmount() != accountBd.getInitialAmount()
                                 ? accountDtoIn.getInitialAmount()
                                 : accountBd.getInitialAmount());

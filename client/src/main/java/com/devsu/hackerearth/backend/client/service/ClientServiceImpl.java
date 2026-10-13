@@ -65,13 +65,16 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public ClientDto update(ClientDto clientDto) {
 
-		Person person = personService.getById(clientDto.getId());
 		ClientDto clientDtoIfExist = getById(clientDto.getId());
+		Person person = personService.getById(clientDto.getId());
 
+		// Keep the ids so both saves update the existing rows instead of inserting new ones
 		Person personIn = mapperperson.clientDtoTOPersonUpdate(person, clientDto);
+		personIn.setId(person.getId());
 		Person personOut = personService.create(personIn);
 
 		Client clientIn = mapperClient.mapperClientDtoToClient(clientDto, clientDtoIfExist);
+		clientIn.setId(personOut.getId());
 		clientIn.setPerson(personOut);
 
 		Client clientOut = clientRepository.saveAndFlush(clientIn);
@@ -88,8 +91,9 @@ public class ClientServiceImpl implements ClientService {
 		ClientDto clientDto = getById(id);
 		Person person = personService.getById(id);
 
-		Client clientIn = mapperClient.mapperClientDtoToClientPartial(clientDto);
+		Client clientIn = mapperClient.mapperClientDtoToClientPartial(clientDto, partialClientDto);
 		clientIn.setId(person.getId());
+		clientIn.setPerson(person);
 		Client clientOut = clientRepository.save(clientIn);
 		ClientDto clientDtoOut = mapperClient.mapperClientToClientDTO(clientOut, person);
 
