@@ -2,7 +2,7 @@ package com.devsu.hackerearth.backend.client.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
@@ -55,7 +55,6 @@ public class ClientServiceImpl implements ClientService {
 		Person person = personService.create(mapperperson.clientDtoTOpPerson(clientDto));
 
 		Client clientIn = mapperClient.mapperClientDtoToClient(clientDto);
-		clientIn.setId(person.getId());
 		clientIn.setPerson(person);
 		Client clientOut = clientRepository.save(clientIn);
 

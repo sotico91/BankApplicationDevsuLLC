@@ -52,7 +52,7 @@ public class TransactionController {
 	}
 
 	@PostMapping("/clients/{id}/report")
-	public ResponseEntity<List<BankStatementDto>> report(@PathVariable Long clientId,
+	public ResponseEntity<List<BankStatementDto>> report(@PathVariable("id") Long clientId,
 			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateTransactionStart,
 			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateTransactionEnd) {
 		// api/transactions/clients/{clientId}/report
